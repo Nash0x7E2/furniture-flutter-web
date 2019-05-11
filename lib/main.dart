@@ -20,87 +20,131 @@ class Furniture extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "Furniture",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black, fontSize: 24.0, fontWeight: FontWeight.w500 ,fontStyle: FontStyle.italic),
         ),
-        leading: Icon(
-          Icons.account_circle,
-          color: Colors.black,
-        ),
+        leading: Image.asset("icon/nav-icon.png"),
         actions: <Widget>[
-          Icon(
-            Icons.search,
-            color: Colors.black,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
           )
         ],
       ),
-      body: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Expanded(
-            flex: 2,
-            child: Image.network(
-              "https://ak1.ostkcdn.com/img/mxc/02142019_Furniture_AMOD_DESKTOP.jpg",
-              fit: BoxFit.fill,
-            ),
+      body: _buildBody(),
+    );
+  }
+
+  Row _buildBody() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Expanded(
+          flex: 2,
+          child: Image.asset(
+            "background-image.jpg",
+            fit: BoxFit.fill,
           ),
-          const SizedBox(width: 20.0),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  "Carica store new product",
-                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16.0),
-                ),
-                const SizedBox(height: 20.0),
-                Text(
-                  "Outdoor Furniture",
-                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 50.0),
-                ),
-                const SizedBox(height: 14.0),
-                Text(
-                  "Recliner lad, eu mollis diam, vitae gravida mauris. Cras mollis malesuada sem vitae venenatis. Morbi at erat eget nulla placerat egestas ",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 24.0,
-                  ),
-                  textAlign: TextAlign.justify,
-                  overflow: TextOverflow.fade,
-                ),
-                const SizedBox(height: 20.0),
-                FlatButton(
-                  onPressed: () {},
-                  color: Color(0xFFCFE8E4),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.0),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text("Read More"),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(48.0),
-              child: Row(
-                children: <Widget>[
-                  Icon(Icons.search),
-                  Icon(Icons.search),
-                  Icon(Icons.search),
-                ],
+        ),
+        const SizedBox(width: 80.0),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                "Carica store new product",
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16.0),
               ),
+              const SizedBox(height: 20.0),
+              Text(
+                "Outdoor Furniture",
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 50.0, fontFamily: 'Merriweather'),
+              ),
+              const SizedBox(height: 14.0),
+              Text(
+                "Recliner lad, eu mollis diam, vitae gravida mauris. Cras mollis malesuada sem vitae venenatis. Morbi at erat eget nulla placerat egestas ",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 24.0,
+                  fontFamily: "Open Sans"
+                ),
+                textAlign: TextAlign.justify,
+              ),
+              const SizedBox(height: 20.0),
+              FlatButton(
+                onPressed: () {},
+                color: Color(0xFFCFE8E4),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text("Read More"),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Padding(
+            padding: const EdgeInsets.all(48.0),
+            child: SizedBox(
+              height: 50.0,
+              child: ButtonRow(),
             ),
           ),
-          const SizedBox(width: 20.0),
-        ],
-      ),
+        ),
+      ],
+    );
+  }
+}
+
+class ButtonRow extends StatelessWidget {
+  const ButtonRow({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: <Widget>[
+        FlatButton(
+          onPressed: () {},
+          color: Color(0XFFFBEFD9),
+          child: Center(
+            child: Image.asset(
+              "social/facebook.png",
+              height: 15.0,
+            ),
+          ),
+        ),
+        FlatButton(
+          onPressed: () {},
+          color: Color(0XFFFBEFD9),
+          child: Center(
+            child: Image.asset(
+              "social/twitter.png",
+              height: 15.0,
+            ),
+          ),
+        ),
+        FlatButton(
+          onPressed: () {},
+          color: Color(0XFFFBEFD9),
+          child: Center(
+            child: Image.asset(
+              "social/instagram.png",
+              height: 15.0,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
