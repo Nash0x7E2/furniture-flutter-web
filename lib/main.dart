@@ -20,7 +20,8 @@ class Furniture extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "Furniture",
-          style: TextStyle(color: Colors.black, fontSize: 24.0, fontWeight: FontWeight.w500 ,fontStyle: FontStyle.italic),
+          style:
+              TextStyle(color: Colors.black, fontSize: 24.0, fontWeight: FontWeight.w500, fontStyle: FontStyle.italic),
         ),
         leading: Image.asset("icon/nav-icon.png"),
         actions: <Widget>[
@@ -33,7 +34,21 @@ class Furniture extends StatelessWidget {
           )
         ],
       ),
-      body: _buildBody(),
+      body: Stack(
+        children: [
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: const EdgeInsets.all(48.0),
+              child: SizedBox(
+                height: 50.0,
+                child: ButtonRow(),
+              ),
+            ),
+          ),
+          _buildBody(),
+        ],
+      ),
     );
   }
 
@@ -43,13 +58,13 @@ class Furniture extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Expanded(
-          flex: 2,
+          flex: 1,
           child: Image.asset(
             "background-image.jpg",
             fit: BoxFit.fill,
           ),
         ),
-        const SizedBox(width: 80.0),
+        const SizedBox(width: 60.0),
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -57,22 +72,20 @@ class Furniture extends StatelessWidget {
             children: <Widget>[
               Text(
                 "Carica store new product",
-                style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16.0),
+                style: TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16.0, fontFamily: "Open Sans"),
               ),
               const SizedBox(height: 20.0),
               Text(
-                "Outdoor Furniture",
-                style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 50.0, fontFamily: 'Merriweather'),
+                "Interior Design",
+                style: TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.w600, fontSize: 50.0, fontFamily: 'Merriweather'),
               ),
               const SizedBox(height: 14.0),
               Text(
                 "Recliner lad, eu mollis diam, vitae gravida mauris. Cras mollis malesuada sem vitae venenatis. Morbi at erat eget nulla placerat egestas ",
                 style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 24.0,
-                  fontFamily: "Open Sans"
-                ),
+                    color: Colors.black, fontWeight: FontWeight.w400, fontSize: 24.0, fontFamily: "Open Sans"),
                 textAlign: TextAlign.justify,
               ),
               const SizedBox(height: 20.0),
@@ -84,22 +97,13 @@ class Furniture extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: Text("Read More"),
+                  child: Text("Read More", style: TextStyle(fontFamily: "Open Sans")),
                 ),
               ),
             ],
           ),
         ),
-        Align(
-          alignment: Alignment.bottomRight,
-          child: Padding(
-            padding: const EdgeInsets.all(48.0),
-            child: SizedBox(
-              height: 50.0,
-              child: ButtonRow(),
-            ),
-          ),
-        ),
+        const SizedBox(width: 100.0),
       ],
     );
   }
