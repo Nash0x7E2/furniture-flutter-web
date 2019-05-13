@@ -1,0 +1,1 @@
+{"isEntrypoint":true,"deps":["flutter_web|lib/material.dart","furniture|lib/utils/responsive_layout.dart","furniture|lib/widgets/button_row.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":[]}
