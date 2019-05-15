@@ -7,6 +7,8 @@ class ResponsiveLayout extends StatelessWidget {
     @required this.largeChild,
     this.mediumChild,
     this.smallChild,
+    this.largeBreakPoint = 1200.0,
+    this.mediumBreakPoint = 800.0,
   })  : assert(largeChild != null),
         super(key: key);
 
@@ -19,18 +21,21 @@ class ResponsiveLayout extends StatelessWidget {
   /// Widget to be displayed when the width is less than 800
   final Widget smallChild;
 
+  final double largeBreakPoint;
+
+  final double mediumBreakPoint;
+
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        if (constraints.maxWidth > 1200.0) {
-          return largeChild;
-        } else if (constraints.maxWidth < 1200.0 && constraints.maxWidth > 800.00) {
-          return mediumChild ?? largeChild;
-        } else {
-          return smallChild ?? largeChild;
-        }
-      },
-    );
+    final smallestWidth = MediaQuery.of(context).size.shortestSide;
+    if (smallestWidth >= largeBreakPoint) {
+      return largeChild;
+    } else if (smallestWidth >= mediumBreakPoint) {
+      return mediumChild ?? largeChild;
+    } else {
+      return smallChild ?? mediumChild ?? largeChild;
+    }
   }
 }
+
+
